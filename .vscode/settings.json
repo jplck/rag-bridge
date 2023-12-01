@@ -1,8 +1,10 @@
 {
-    "azureFunctions.deploySubpath": "src/bin/Release/net8.0/publish",
-    "azureFunctions.projectLanguage": "C#",
+    "azureFunctions.projectSubpath": "src",
+    "azureFunctions.deploySubpath": "src",
+    "azureFunctions.scmDoBuildDuringDeployment": true,
+    "azureFunctions.pythonVenv": ".venv",
+    "azureFunctions.projectLanguage": "Python",
     "azureFunctions.projectRuntime": "~4",
     "debug.internalConsoleOptions": "neverOpen",
-    "azureFunctions.preDeployTask": "publish (functions)",
-    "azureFunctions.projectSubpath": "src\\services\\importer"
+    "azureFunctions.projectLanguageModel": 2
 }

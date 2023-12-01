@@ -20,12 +20,13 @@ OPENAI_ENDPOINT=$(az cognitiveservices account show --name $OAI_RESOURCE_NAME --
 SEARCH_ENDPOINT="https://$SEARCH_RESOURCE_NAME.search.windows.net"
 
 #create json file with all the endpoints
-cat <<EOF > ../local.settings.json
+cat <<EOF > ../src/local.settings.json
 {
     "IsEncrypted": false,
      "Values": {
         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-        "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+        "FUNCTIONS_WORKER_RUNTIME": "python",
+        "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
         "OPENAI_API_ENDPOINT": "$OPENAI_ENDPOINT",
         "OPENAI_DEPLOYMENT_NAME": "model1",
         "OPENAI_EMBEDDINGS_DEPLOYMENT_NAME": "embedding",
