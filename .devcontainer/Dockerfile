@@ -11,6 +11,8 @@ RUN sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_re
 RUN apt update && apt install -y \
     azure-functions-core-tools-4
 
+RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
 # Add non-root user
 ARG USERNAME=nonroot
 RUN groupadd --gid 1000 $USERNAME && \
