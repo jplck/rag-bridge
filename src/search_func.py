@@ -40,4 +40,4 @@ def search(index_name: str, prompt: str) -> str:
     message = HumanMessage(
         content=f"Take the search results from {result} and use them to generate a response to the prompt {prompt}.",
     )
-    return model([message])
+    return model([message]).content
