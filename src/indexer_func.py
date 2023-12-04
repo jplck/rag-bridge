@@ -45,8 +45,6 @@ def fetch_documents(folder_path: str) -> None:
             documents = loader.load()
             docs = text_splitter.split_documents(documents)
             vector_store.add_documents(docs)
-    
-    return
 
 def create_index(index_name: str) -> None:
     embedding_function = embeddings.embed_query
