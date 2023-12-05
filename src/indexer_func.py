@@ -6,6 +6,7 @@ from azure.search.documents.indexes import SearchIndexClient
 from langchain.vectorstores.azuresearch import AzureSearch
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.document_loaders import TextLoader
+from azure.core.exceptions import ResourceNotFoundError
 from azure.search.documents.indexes.models import (
     ScoringProfile,
     SearchableField,
@@ -23,7 +24,7 @@ idx = func.Blueprint()
 embeddings: AzureOpenAIEmbeddings = AzureOpenAIEmbeddings(deployment=os.environ["OPENAI_EMBEDDINGS_DEPLOYMENT_NAME"], chunk_size=1)
 index_name = os.environ["COGNITIVE_SEARCH_INDEX_NAME"]
 
-@idx.schedule(schedule="5 * * * * *", arg_name="myTimer", run_on_startup=True,
+@idx.schedule(schedule="* 10 * * * *", arg_name="myTimer", run_on_startup=True,
               use_monitor=False) 
 def timer_trigger(myTimer: func.TimerRequest) -> None:
     if myTimer.past_due:
@@ -35,7 +36,7 @@ def timer_trigger(myTimer: func.TimerRequest) -> None:
     fetch_documents("docs")
 
 def fetch_documents(folder_path: str) -> None:
-    text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+    text_splitter = CharacterTextSplitter.from_tiktoken_encoder(chunk_size=1000, chunk_overlap=0)
     vector_store = get_vector_store(index_name)
 
     for filename in os.listdir(folder_path):
@@ -46,11 +47,16 @@ def fetch_documents(folder_path: str) -> None:
                     data = json.load(file)
                     for doc in data:
                         content = doc["content"]
-                        doc_id = doc["id"]
                         title = doc["title"]
-                        documents = [content]
-                        docs = text_splitter.split_documents(documents)
-                        vector_store.add_documents(documents=docs, metadata={"source": filename, "id": doc_id, "title": title})
+                        doc_id = doc["id"]
+
+                        chunks = text_splitter.split_text(content)
+                        for i, chunk in enumerate(chunks):
+                            vector_store.add_texts(
+                                keys=[f"{doc_id}_{i}"],
+                                texts=[chunk],
+                                metadatas=[{"source": "docs", "title": title}],
+                            )
 
 def create_index(index_name: str) -> None:
     embedding_function = embeddings.embed_query
@@ -73,11 +79,6 @@ def create_index(index_name: str) -> None:
             searchable=True,
             vector_search_dimensions=len(embedding_function("Text")),
             vector_search_configuration="default",
-        ),
-        SearchableField(
-            name="metadata",
-            type=SearchFieldDataType.String,
-            searchable=True,
         ),
         # Additional field to store the title
         SearchableField(

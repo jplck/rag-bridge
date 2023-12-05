@@ -4,23 +4,32 @@ import os
 from utils import get_vector_store
 from langchain.chat_models import AzureChatOpenAI
 from langchain.schema import HumanMessage
+import json
 
 http_search = func.Blueprint()
 index_name = os.environ["COGNITIVE_SEARCH_INDEX_NAME"]
 
 @http_search.route(route="search", methods=["POST"], auth_level=func.AuthLevel.ANONYMOUS)
+
 def search(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
-    prompt = req.get_body().decode()
-    search_result = search(index_name, prompt)
-    
-    if prompt:
-        return func.HttpResponse(search_result)
-    else:
+    try:
+        req_body = req.get_json()
+        prompt = req_body["prompt"]
+        search_result = search(index_name, prompt)
+        
+        if prompt:
+            return func.HttpResponse(search_result)
+        else:
+            return func.HttpResponse(
+                 "Please enter a prompt to search for.",
+                 status_code=401
+            )
+    except ValueError:
         return func.HttpResponse(
-             "Please enter a prompt to search for.",
-             status_code=401
+            "Invalid JSON format.",
+            status_code=400
         )
     
 def search(index_name: str, prompt: str) -> str:

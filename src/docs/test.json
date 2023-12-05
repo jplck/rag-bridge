@@ -1,6 +1,5 @@
 
-{
-  "faq": [
+[
     {
       "id": 1,
       "title": "What is Baustrom?",
@@ -51,5 +50,4 @@
       "title": "How can Baustrom be disconnected after its use?",
       "content": "Baustrom can be disconnected by safely shutting down the temporary electrical distribution system, disconnecting the cables, and removing any temporary connections made to the main power grid."
     }
-  ]
-}
+]
