@@ -16,6 +16,7 @@ from azure.search.documents.indexes.models import (
 )
 from utils import get_vector_store
 import os
+import json
 
 idx = func.Blueprint()
 
@@ -33,18 +34,23 @@ def timer_trigger(myTimer: func.TimerRequest) -> None:
     create_index(index_name)
     fetch_documents("docs")
 
-
 def fetch_documents(folder_path: str) -> None:
     text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
     vector_store = get_vector_store(index_name)
-    
+
     for filename in os.listdir(folder_path):
-        file_path = os.path.join(folder_path, filename)
-        if os.path.isfile(file_path):
-            loader = TextLoader(file_path, encoding="utf-8")
-            documents = loader.load()
-            docs = text_splitter.split_documents(documents)
-            vector_store.add_documents(docs)
+        if filename.endswith(".json"):
+            file_path = os.path.join(folder_path, filename)
+            if os.path.isfile(file_path):
+                with open(file_path, "r") as file:
+                    data = json.load(file)
+                    for doc in data:
+                        content = doc["content"]
+                        doc_id = doc["id"]
+                        title = doc["title"]
+                        documents = [content]
+                        docs = text_splitter.split_documents(documents)
+                        vector_store.add_documents(documents=docs, metadata={"source": filename, "id": doc_id, "title": title})
 
 def create_index(index_name: str) -> None:
     embedding_function = embeddings.embed_query

@@ -1,0 +1,55 @@
+
+{
+  "faq": [
+    {
+      "id": 1,
+      "title": "What is Baustrom?",
+      "content": "Baustrom is a temporary electrical power supply used at construction sites."
+    },
+    {
+      "id": 2,
+      "title": "Why is Baustrom necessary?",
+      "content": "Baustrom is necessary to power construction equipment, tools, and temporary facilities at construction sites where a permanent power supply is not available."
+    },
+    {
+      "id": 3,
+      "title": "How is Baustrom installed?",
+      "content": "Baustrom is installed by connecting a temporary electrical distribution system to the main power grid or using a generator to generate electricity on-site."
+    },
+    {
+      "id": 4,
+      "title": "What safety measures should be taken when using Baustrom?",
+      "content": "When using Baustrom, it is important to follow electrical safety guidelines, such as using insulated cables, grounding the system, and regularly inspecting the equipment for any damages."
+    },
+    {
+      "id": 5,
+      "title": "Can Baustrom be used in all weather conditions?",
+      "content": "Baustrom can be used in various weather conditions, but additional precautions may be required in extreme weather conditions, such as heavy rain, snow, or high winds."
+    },
+    {
+      "id": 6,
+      "title": "How is the power capacity of Baustrom determined?",
+      "content": "The power capacity of Baustrom is determined based on the electrical load requirements of the construction site, including the power consumption of equipment, tools, and temporary facilities."
+    },
+    {
+      "id": 7,
+      "title": "Can Baustrom be used for residential construction projects?",
+      "content": "Yes, Baustrom can be used for residential construction projects where a permanent power supply is not available or during the early stages of construction."
+    },
+    {
+      "id": 8,
+      "title": "Are there any regulations or permits required for using Baustrom?",
+      "content": "The use of Baustrom may be subject to local regulations and permits. It is important to check with the relevant authorities to ensure compliance with the necessary requirements."
+    },
+    {
+      "id": 9,
+      "title": "What are the advantages of using Baustrom?",
+      "content": "Using Baustrom provides a reliable and convenient temporary power supply, allowing construction activities to proceed smoothly without relying on a permanent power source."
+    },
+    {
+      "id": 10,
+      "title": "How can Baustrom be disconnected after its use?",
+      "content": "Baustrom can be disconnected by safely shutting down the temporary electrical distribution system, disconnecting the cables, and removing any temporary connections made to the main power grid."
+    }
+  ]
+}

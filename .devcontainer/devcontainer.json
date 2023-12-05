@@ -13,7 +13,8 @@
                 "azurite.azurite",
                 "ms-azuretools.vscode-azurestorage",
                 "github.copilot-chat",
-                "github.copilot"
+                "github.copilot",
+                "hediet.vscode-drawio"
             ]
         }
     }
