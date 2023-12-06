@@ -4,7 +4,6 @@ import os
 from utils import get_vector_store
 from langchain.chat_models import AzureChatOpenAI
 from langchain.schema import HumanMessage
-import json
 
 http_search = func.Blueprint()
 index_name = os.environ["COGNITIVE_SEARCH_INDEX_NAME"]
