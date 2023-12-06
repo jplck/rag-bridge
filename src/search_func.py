@@ -4,6 +4,7 @@ import os
 from utils import get_vector_store
 from langchain.chat_models import AzureChatOpenAI
 from langchain.schema import HumanMessage
+from sample_indexer import Sample_Indexer
 
 http_search = func.Blueprint()
 index_name = os.environ["COGNITIVE_SEARCH_INDEX_NAME"]
@@ -16,7 +17,10 @@ def search(req: func.HttpRequest) -> func.HttpResponse:
     try:
         req_body = req.get_json()
         prompt = req_body["prompt"]
-        search_result = search(index_name, prompt)
+
+        indexer = Sample_Indexer(index_name)
+
+        search_result = search(indexer, prompt)
         
         if prompt:
             return func.HttpResponse(search_result)
@@ -31,19 +35,13 @@ def search(req: func.HttpRequest) -> func.HttpResponse:
             status_code=400
         )
     
-def search(index_name: str, prompt: str) -> str:
+def search(indexer: Sample_Indexer, prompt: str) -> str:
     model = AzureChatOpenAI(
         openai_api_version="2023-05-15",
         azure_deployment=os.environ["OPENAI_DEPLOYMENT_NAME"],
     )
-    vector_store = get_vector_store(index_name)
-    docs = vector_store.similarity_search(
-        query=prompt,
-        k=3,
-        search_type="hybrid",
-    )
     
-    result = docs[0].page_content
+    result = indexer.search(prompt)
 
     message = HumanMessage(
         content=f"Take the search results from {result} and use them to generate a response to the prompt {prompt}.",

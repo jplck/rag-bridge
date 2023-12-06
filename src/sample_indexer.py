@@ -50,6 +50,15 @@ class Sample_Indexer:
             ),
         ]
     
+    def search(self, prompt: str) -> str:
+        vector_store = get_vector_store(self._index_name, self.get_model())
+        docs = vector_store.similarity_search(
+            query=prompt,
+            k=3,
+            search_type="hybrid",
+        )
+        return docs[0].page_content
+
     def fetch(self, folder_path: str) -> None:
 
         vector_store = get_vector_store(self._index_name, self.get_model())
