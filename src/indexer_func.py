@@ -2,9 +2,7 @@ import os
 import logging
 import azure.functions as func
 
-from utils import create_index
-from model import file_based_sample_model
-from data_interfaces import fetch_documents
+from sample_indexer import Sample_Indexer
 import os
 
 idx = func.Blueprint()
@@ -19,5 +17,5 @@ def timer_trigger(myTimer: func.TimerRequest) -> None:
 
     logging.info('Python timer trigger function executed.') 
 
-    create_index(index_name, file_based_sample_model)
-    fetch_documents("docs")
+    indexer = Sample_Indexer(index_name)
+    indexer.fetch("docs")
