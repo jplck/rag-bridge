@@ -31,6 +31,17 @@ module indexer_func_storage 'storage.bicep' = {
   }
 }
 
+module memory_storage 'storage.bicep' = {
+  name: 'memory_storage'
+  scope: rg
+  params: {
+    location: location
+    storageAccountName: 'memory${projectName}'
+    containerNames: []
+  }
+}
+
+
 module indexer_func 'indexer.bicep' = {
   name: 'indexer_func'
   scope: rg
