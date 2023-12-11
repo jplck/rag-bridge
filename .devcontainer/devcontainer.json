@@ -15,7 +15,8 @@
                 "github.copilot-chat",
                 "github.copilot",
                 "hediet.vscode-drawio",
-                "humao.rest-client"
+                "humao.rest-client",
+                "ms-azuretools.vscode-bicep"
             ]
         }
     }

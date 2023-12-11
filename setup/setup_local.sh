@@ -26,9 +26,6 @@ SEARCH_ENDPOINT="https://$SEARCH_RESOURCE_NAME.search.windows.net"
 #get the key for azure search
 SEARCH_KEY=$(az search admin-key show --resource-group $RESOURCE_GROUP --service-name $SEARCH_RESOURCE_NAME --query "primaryKey" --output tsv)
 
-#get the full connection string for azure blob storage
-MEMORY_STORAGE_CONNECTION_STRING=$(az storage account show-connection-string --name $MEMORY_STORAGE_ACCOUNT_NAME --resource-group $RESOURCE_GROUP --query "connectionString" --output tsv)
-
 #create json file with all the endpoints
 cat <<EOF > ../src/local.settings.json
 {
@@ -48,7 +45,7 @@ cat <<EOF > ../src/local.settings.json
         "OPENAI_API_KEY": "$OPENAI_KEY",
         "AZURE_OPENAI_ENDPOINT": "$OPENAI_ENDPOINT",
         "OPENAI_API_VERSION": "2023-05-15",
-        "MEMORY_STORAGE_CONNECTION_STRING": "$MEMORY_STORAGE_CONNECTION_STRING",
+        "DATA_ENPOINT_URL": "",
     }
 }
 EOF

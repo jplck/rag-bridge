@@ -18,4 +18,4 @@ def timer_trigger(myTimer: func.TimerRequest) -> None:
     logging.info('Python timer trigger function executed.') 
 
     indexer = Sample_Indexer(index_name)
-    indexer.fetch("docs")
+    indexer.fetch(os.environ["DATA_ENPOINT_URL"])

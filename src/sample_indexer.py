@@ -8,6 +8,9 @@ from langchain.embeddings import AzureOpenAIEmbeddings
 import os
 import json
 from utils import add_to_index, get_vector_store
+from langchain_core.documents import Document
+from typing import List
+import requests
 
 class Sample_Indexer:
 
@@ -50,16 +53,31 @@ class Sample_Indexer:
             ),
         ]
     
-    def search(self, prompt: str) -> str:
+    def search(self, prompt: str) -> List[Document]:
         vector_store = get_vector_store(self._index_name, self.get_model())
         docs = vector_store.similarity_search(
             query=prompt,
             k=3,
             search_type="hybrid",
         )
-        return docs[0].page_content
+        return docs
 
-    def fetch(self, folder_path: str) -> None:
+    def fetch(self, url: str) -> None:
+        vector_store = get_vector_store(self._index_name, self.get_model())
+        response = requests.post(url, json=None)
+        if response.status_code == 200:
+            data = response.json()
+            for doc in data:
+                content = doc["content"]
+                title = doc["title"]
+                doc_id = doc["id"]
+
+                add_to_index(vector_store, content, title, doc_id)
+        else:
+            raise Exception(f"Failed to fetch JSON from endpoint. Status code: {response.status_code}")
+
+
+    def fetch_local(self, folder_path: str) -> None:
 
         vector_store = get_vector_store(self._index_name, self.get_model())
 
