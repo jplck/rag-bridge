@@ -1,12 +1,9 @@
 import azure.functions as func
 import logging
 import os
-from utils import get_vector_store
 from langchain.chat_models import AzureChatOpenAI
-from langchain.schema import HumanMessage
 from sample_indexer import Sample_Indexer
-from langchain.prompts.prompt import PromptTemplate
-from langchain.memory import VectorStoreRetrieverMemory
+from langchain.prompts import ChatPromptTemplate
 from langchain.chains.question_answering import load_qa_chain
 
 http_search = func.Blueprint()
@@ -45,36 +42,23 @@ def search(indexer: Sample_Indexer, prompt: str) -> str:
             azure_deployment=os.environ["OPENAI_DEPLOYMENT_NAME"],
         )
 
-        result = indexer.search(prompt)
+        search_results = indexer.search(prompt)
 
-        template = """You are a chatbot having a conversation with a human. Provide a list of all found html links in your answer.
-        {context}
-        {history}
-        Human: {input}
-        Chatbot:"""
-
-        prompt_template = PromptTemplate(
-            input_variables=["history", "context", "input"], template=template
+        chat_template = ChatPromptTemplate.from_messages(
+            [
+                ("system", "You are a chatbot having a conversation with a human about energy topics. "
+                           "You have received the following context to base your answer on: {context}. "
+                           "Please wrap links you found in the context in html tags. """),
+                ("human", "{user_input}"),
+            ]
         )
 
-        index_model = Sample_Indexer("test").get_model()
-        vector_store = get_vector_store("memory", index_model)
+        answer = model.invoke(chat_template.format_messages(
+            context=search_results,
+            user_input=prompt,
+        ))
 
-        memory = VectorStoreRetrieverMemory(
-            retriever=vector_store.as_retriever(),
-            input_key="input",
-        )
-
-        chain = load_qa_chain(
-            llm=model,
-            prompt=prompt_template,
-            verbose=True,
-            memory=memory,
-        )
-
-        output = chain({ "input": prompt, "input_documents": result}, return_only_outputs=True)
-
-        return output['output_text']
+        return answer.content
     except Exception as e:
         logging.error(f"An error occurred: {str(e)}")
         return ""
