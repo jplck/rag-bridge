@@ -30,7 +30,7 @@ resource deploymentModel1 'Microsoft.CognitiveServices/accounts/deployments@2023
   }
   sku: {
     name: 'Standard'
-    capacity: 1
+    capacity: 50
   }
 }
 
@@ -47,7 +47,7 @@ resource deploymentEmbeddings 'Microsoft.CognitiveServices/accounts/deployments@
   }
   sku: {
     name: 'Standard'
-    capacity: 1
+    capacity: 50
   }
 }
 
