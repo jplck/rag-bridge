@@ -17,10 +17,11 @@ def search(req: func.HttpRequest) -> func.HttpResponse:
     try:
         req_body = req.get_json()
         prompt = req_body["prompt"]
+        history = req_body["history"]
 
         indexer = Sample_Indexer(index_name)
 
-        search_result = search(indexer, prompt)
+        search_result = search(indexer, prompt, history)
         
         if prompt:
             return func.HttpResponse(search_result)
@@ -35,7 +36,7 @@ def search(req: func.HttpRequest) -> func.HttpResponse:
             status_code=400
         )
     
-def search(indexer: Sample_Indexer, prompt: str) -> str:
+def search(indexer: Sample_Indexer, prompt: str, history: [str] = []) -> str:
     try:
         model = AzureChatOpenAI(
             openai_api_version="2023-05-15",
@@ -47,7 +48,7 @@ def search(indexer: Sample_Indexer, prompt: str) -> str:
         chat_template = ChatPromptTemplate.from_messages(
             [
                 ("system", "You are a chatbot having a conversation with a human about energy topics. "
-                           "You have received the following context to base your answer on: {context}. "
+                           "You have received the following context to base your answer on: {context}. Also rely on the chat {history} if available. "
                            "Please wrap links you found in the context in html tags. """),
                 ("human", "{user_input}"),
             ]
@@ -55,6 +56,7 @@ def search(indexer: Sample_Indexer, prompt: str) -> str:
 
         answer = model.invoke(chat_template.format_messages(
             context=search_results,
+            history=history,
             user_input=prompt,
         ))
 

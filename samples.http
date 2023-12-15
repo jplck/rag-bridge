@@ -2,5 +2,9 @@ POST http://localhost:7071/api/search HTTP/1.1
 content-type: application/json
 
 {
-    "prompt":"Bis wie viel kw ist eine Wallbox gnehmigungsfrei?"
+    "prompt":"Wo beantrage ich eine Wallbox?",
+    "history": [
+        {"User": "Wo beantrage ich eine Wallbox?"},
+        {"System": ""}
+    ]
 }
