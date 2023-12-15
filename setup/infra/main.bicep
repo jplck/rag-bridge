@@ -1,5 +1,5 @@
 @description('Location resources.')
-param location string = 'westeurope'
+param location string = 'eastus'
 
 @description('Define the project name')
 param projectName string

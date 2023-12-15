@@ -34,7 +34,7 @@ cat <<EOF > ../src/local.settings.json
         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
         "FUNCTIONS_WORKER_RUNTIME": "python",
         "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
-        "OPENAI_DEPLOYMENT_NAME": "model1",
+        "OPENAI_DEPLOYMENT_NAME": "completion",
         "OPENAI_EMBEDDINGS_DEPLOYMENT_NAME": "embedding",
         "COGNITIVE_SEARCH_ENDPOINT": "$SEARCH_ENDPOINT",
         "COGNITIVE_SEARCH_KEY": "$SEARCH_KEY",

@@ -5,7 +5,7 @@ param searchSku string = 'standard'
 param projectName string
 
 
-resource openAIAccount 'Microsoft.CognitiveServices/accounts@2022-03-01' = {
+resource openAIAccount 'Microsoft.CognitiveServices/accounts@2023-05-01' = {
   name: openaiDeploymentName
   location: location
   kind: 'OpenAI'
@@ -18,22 +18,23 @@ resource openAIAccount 'Microsoft.CognitiveServices/accounts@2022-03-01' = {
   }
 }
 
-resource deploymentModel1 'Microsoft.CognitiveServices/accounts/deployments@2022-10-01' = {
+resource deploymentModel1 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = {
   parent: openAIAccount
-  name: 'model1'
+  name: 'completion'
   properties: {
     model: {
       name: 'gpt-35-turbo'
-      version: '0301'
+      version: '0613'
       format: 'OpenAI'
     }
-    scaleSettings: {
-      scaleType: 'Standard'
-    }
+  }
+  sku: {
+    name: 'Standard'
+    capacity: 1
   }
 }
 
-resource deploymentEmbeddings 'Microsoft.CognitiveServices/accounts/deployments@2022-10-01' = {
+resource deploymentEmbeddings 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = {
   parent: openAIAccount
   dependsOn: [deploymentModel1]
   name: 'embedding'
@@ -43,9 +44,10 @@ resource deploymentEmbeddings 'Microsoft.CognitiveServices/accounts/deployments@
       version: '2'
       format: 'OpenAI'
     }
-    scaleSettings: {
-      scaleType: 'Standard'
-    }
+  }
+  sku: {
+    name: 'Standard'
+    capacity: 1
   }
 }
 
