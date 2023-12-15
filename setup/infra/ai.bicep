@@ -24,7 +24,7 @@ resource deploymentModel1 'Microsoft.CognitiveServices/accounts/deployments@2023
   properties: {
     model: {
       name: 'gpt-35-turbo'
-      version: '0613'
+      version: '0301'
       format: 'OpenAI'
     }
   }
