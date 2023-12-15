@@ -31,4 +31,4 @@ az deployment sub create \
   --name "deploy-ai-indexer-infra-$PROJECT_NAME" \
   --location $LOCATION \
   --template-file ./infra/main.bicep \
-  --parameters projectName=$PROJECT_NAME
+  --parameters projectName=$PROJECT_NAME location=$LOCATION \
