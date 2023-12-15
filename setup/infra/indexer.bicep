@@ -1,11 +1,9 @@
 param appName string
 param location string = resourceGroup().location
-param runtime string = 'dotnet'
 param webJobStorageAccountName string
 param applicationInsightsName string
 
 var hostingPlanName = '${appName}-plan'
-var functionWorkerRuntime = runtime
 
 resource webJobStorageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' existing = {
   name: webJobStorageAccountName
@@ -58,7 +56,7 @@ resource functionApp 'Microsoft.Web/sites@2021-03-01' = {
         }
         {
           name: 'FUNCTIONS_WORKER_RUNTIME'
-          value: functionWorkerRuntime
+          value: 'python'
         }
       ]
       ftpsState: 'Disabled'
