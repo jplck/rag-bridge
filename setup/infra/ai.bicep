@@ -24,7 +24,7 @@ resource deploymentModel1 'Microsoft.CognitiveServices/accounts/deployments@2022
   properties: {
     model: {
       name: 'gpt-35-turbo'
-      version: '0301'
+      version: '1106'
       format: 'OpenAI'
     }
     scaleSettings: {
