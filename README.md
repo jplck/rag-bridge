@@ -1,5 +1,7 @@
 # rag-bridge
 
+DISCLAIMER: Do not use in production.
+
 ![Overview architecture](/architecture/overview.png)
 
 ## Steps to run the project
