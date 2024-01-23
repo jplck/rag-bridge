@@ -4,6 +4,9 @@ param location string = 'eastus'
 @description('Define the project name')
 param projectName string
 
+var openAIName = 'openai-${projectName}'
+var aiSearchName = 'search-${projectName}'
+
 targetScope = 'subscription'
 
 resource rg 'Microsoft.Resources/resourceGroups@2021-01-01' = {
@@ -50,6 +53,8 @@ module indexer_func 'indexer.bicep' = {
     webJobStorageAccountName: indexer_func_storage.outputs.storageAccountName
     applicationInsightsName: logging.outputs.appInsightsName
     appName: 'indexerfunc${projectName}'
+    openAiName: openAIName
+    aiSearchName: aiSearchName
   }
 }
 
@@ -58,7 +63,8 @@ module ai 'ai.bicep' = {
   scope: rg
   params: {
     location: location
-    openaiDeploymentName: 'openai-${projectName}'
+    openAiAccountName: openAIName
+    aiSearchName: aiSearchName
     projectName: projectName
   }
 }

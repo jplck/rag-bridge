@@ -45,7 +45,7 @@ cat <<EOF > ../src/local.settings.json
         "OPENAI_API_KEY": "$OPENAI_KEY",
         "AZURE_OPENAI_ENDPOINT": "$OPENAI_ENDPOINT",
         "OPENAI_API_VERSION": "2023-05-15",
-        "DATA_ENPOINT_URL": "[ADD DATA ENDPOINT URL HERE]",
+        "DATA_ENPOINT_URL": "[ADD DATA ENDPOINT URL HERE]"
     }
 }
 EOF

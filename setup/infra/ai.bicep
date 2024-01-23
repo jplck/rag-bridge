@@ -1,12 +1,12 @@
 param location string = 'westeurope'
-param openaiDeploymentName string
+param openAiAccountName string
 param openAISku string = 'S0'
 param searchSku string = 'standard'
 param projectName string
-
+param aiSearchName string
 
 resource openAIAccount 'Microsoft.CognitiveServices/accounts@2023-05-01' = {
-  name: openaiDeploymentName
+  name: openAiAccountName
   location: location
   kind: 'OpenAI'
   sku: {
@@ -52,7 +52,7 @@ resource deploymentEmbeddings 'Microsoft.CognitiveServices/accounts/deployments@
 }
 
 resource search 'Microsoft.Search/searchServices@2021-04-01-preview' = {
-  name: 'search-${projectName}'
+  name: aiSearchName
   location: location
   sku: {
     name: searchSku
