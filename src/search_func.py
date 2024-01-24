@@ -47,16 +47,16 @@ def search(indexer: Sample_Indexer, prompt: str, history: [str] = []) -> str:
 
         chat_template = ChatPromptTemplate.from_messages(
             [
-                ("system", "You are a chatbot having a conversation with a human about energy topics. "
-                           "You have received the following context to base your answer on: {context}. Also rely on the chat {history} if available. "
-                           "Please wrap links you found in the context in html tags. """),
+                ("system", "You are a chatbot having a conversation with a human. \
+                           Use ONLY the context '{context}' and chat history '{chat_history}' as your source for answers. \
+                           Please wrap html links you found in html tags. """),
                 ("human", "{user_input}"),
             ]
         )
 
         answer = model.invoke(chat_template.format_messages(
             context=search_results,
-            history=history,
+            chat_history=history,
             user_input=prompt,
         ))
 

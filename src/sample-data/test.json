@@ -1,0 +1,48 @@
+
+[
+    {
+      "id": 1,
+      "title": "Was ist ein zeitlich befristeter Netzanschluss?",
+      "content": "Ein zeitlich befristeter Netzanschluss ist eine provisorisch versorgte Anlage, die nicht länger als ein Jahr in Betrieb ist. Hierzu gehören zum Beispiel elektrische Anschlüsse für Baustellenverteiler (Baustromanschlüsse) oder Schaustellerbetriebe (Schaustelleranschlüsse)."
+    },
+    {
+      "id": 2,
+      "title": "Warum sollte die Anmeldung des zeitlich befristeten Netzanschlusses durch eine Elektrofachkraft erfolgen?",
+      "content": "Ihre Elektrofachkraft kennt die technischen Voraussetzungen und Daten, die wir für die Bearbeitung der Anmeldung benötigen. Dazu gehören auch die Verbrauchswerte von elektrischen Geräten mit einem hohen Stromverbrauch - wie z. B. Baumaschinen. Die Elektrofachkraft bestätigt im Verlauf der Anmeldung, dass alle technischen Richtlinien bei der Vorbereitung des Anschlusses eingehalten wurden. Es ist notwendig, dass die Elektrofachkraft bei der Netze BW oder einem anderen Verteilnetzbetreiber registriert ist"
+    },
+    {
+      "id": 3,
+      "title": "Welche baulichen und technischen Voraussetzungen muss ich für die Installation eines zeitlich befristeten Netzanschlusses schaffen?",
+      "content": "Die Kabelvorstreckung im Grundstück muss ausreichend freigelegt und ein Montagepunkt (Holzgestell) hergestellt werden. Der anzuschließende bauseitig zur Verfügung gestellte Baustromverteiler muss den gültigen technischen Anschlussbedingungen entsprechen.> Technische Anschlussbedingungen Niederspannung > Infoblatt zur Messeinrichtung zeitlich befristeter Netzanschlüsse. Freileitungsabgriffstangen sind bei Bedarf bauseitig zu liefern. Ein Durchschleifkasten mit Zählerplatz ist bei Kabellänge > 30 m vom Bauherren vorzuhalten."
+    },
+    {
+      "id": 4,
+      "title": "Wer stellt den Baustromkasten zur Verfügung?",
+      "content": "Der Baustromkasten wird von Ihrer Elektrofachkraft oder der Baufirma zur Verfügung gestellt."
+    },
+    {
+      "id": 5,
+      "title": "Wie lange dauert es, bis nach der Anmeldung der zeitlich befristete Stromanschluss hergestellt wird?",
+      "content": "Nach dem Eingang der Anmeldung prüfen wir die technische Umsetzbarkeit des zeitlich befristeten Stromanschlusses. Im Anschluss nehmen wir Kontakt mit Ihrer Elektrofachkraft auf und vereinbaren einen Termin für die Herstellung des zeitlich befristeten Stromanschlusses. Dies erfolgt erfolgt in der Regel innerhalb 2 Wochen nach der Anmeldung."
+    },
+    {
+      "id": 6,
+      "title": "Was ist zu tun, wenn der befristete Netzanschluss länger als ein Jahr benötigt wird?",
+      "content": "In einigen Fällen kommt es vor, dass der zeitlich befristete Netzanschluss länger als ein Jahr benötigt wird. In diesem Fall senden Sie uns bitte eine E-Mail an die in der Bestätigung angegebenen Adresse. In der Regel steht einer Verlängerung auf absehbare Dauer nichts im Wege. Sonderregeln in Braunschweig: Kann ohne weiteres auf zwei Jahre verlängert werden. Danach ist nichts weiter möglich."
+    },
+    {
+      "id": 7,
+      "title": "Anforderungen an die Baustromversorgung",
+      "content": "Um sicherstellen zu können, dass Sie den passenden Netzanschluss bekommen, benötigen wir einige technische Informationen von Ihnen. Sollten Sie besondere Verbrauchseinrichtung planen, geben Sie diese und die benötigte Anschlussleistung unter Berücksichtigung sämtlicher Verbraucher sowie deren Gleichzeitigkeit an. Ihre Eingaben werden von uns bei der Netzplanung berücksichtigt. Zu den anmeldepflichtigen Geräten zählen: Wärmepumpen, Wallboxen bzw. Ladeeinrichtungen, Erzeugungsanlagen, elektrische Wärmeanlagen, Aufzüge, sonstige Anlagen, bspw. Industrieanlagen und -maschinen, Industriebacköfen. Unser Tipp: Lassen Sie sich bei der Anmeldung durch Ihre Elektrofachkraft unterstützen. Diese kennt Ihre Gegebenheiten vor Ort und alle wichtigen technischen Informationen."
+    },
+    {
+      "id": 8,
+      "title": "Wo finde ich Informationen zur Bauwerksabdichtung und zur Bauart der Wand-/Bodenkonstruktion?",
+      "content": "Grundsätzliche Informationen zur Bauwerksabdichtung und zur Bauart der Wand- und Bodenkonstruktion finden Sie auf der Internetseite des Fachverbands Hauseinführungen für Rohre und Kabel e.V. (FHRK). Im Detail weiß Ihr*e Architekt*in, Planer*in oder Kellerbauer*in Bescheid.Für uns sind diese Informationen wichtig, um für Sie die geeignete Hauseinführung auswählen zu können, damit die Einführung der Leitung in Ihr Gebäude gegen Feuchtigkeit abgedichtet ist und Ihr Keller trocken bleibt."
+    },
+    {
+      "id": 9,
+      "title": "Ist eine Überbauung von Anschlussleitungen zulässig?",
+      "content": "Eine direkte Überbauung (z. B. Garage, Wintergarten, Carport, Geräteschuppen) von Anschlussleitungen ist nur unter Anwendung von Schutzmaßnahmen (z. B. überbaubare Mantelrohre) zulässig. Diese können Sie gerne mit uns abstimmen.Bitte beachten Sie die zusätzliche Maßnahmen bei Gasanschlussleitungen: Bei Gasanschlussleitungen sind zudem Mindestpflanzabstände für Bäume und Sträucher (z. B. Haselnuss und Zypressengewächs-Sträucher) von 2,5 m einzuhalten, die ebenfalls mit geeigneten Schutzmaßnahmen unterschritten werden können. Diese bitten wir mit uns abzustimmen."
+    }
+]

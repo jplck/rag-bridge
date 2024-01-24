@@ -57,7 +57,7 @@ class Sample_Indexer:
         vector_store = get_vector_store(self._index_name, self.get_model())
         docs = vector_store.similarity_search(
             query=prompt,
-            k=3,
+            k=5,
             search_type="hybrid",
         )
         return docs
