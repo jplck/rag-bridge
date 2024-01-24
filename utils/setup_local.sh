@@ -27,7 +27,7 @@ SEARCH_ENDPOINT="https://$SEARCH_RESOURCE_NAME.search.windows.net"
 SEARCH_KEY=$(az search admin-key show --resource-group $RESOURCE_GROUP --service-name $SEARCH_RESOURCE_NAME --query "primaryKey" --output tsv)
 
 #create json file with all the endpoints
-cat <<EOF > ../src/local.settings.json
+cat <<EOF > ../local.settings.json
 {
     "IsEncrypted": false,
      "Values": {

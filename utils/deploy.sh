@@ -30,5 +30,5 @@ AZURE_CORE_ONLY_SHOW_ERRORS="True"
 az deployment sub create \
   --name "deploy-ai-indexer-infra-$PROJECT_NAME" \
   --location $LOCATION \
-  --template-file ./infra/main.bicep \
+  --template-file ../infra/main.bicep \
   --parameters projectName=$PROJECT_NAME location=$LOCATION \
