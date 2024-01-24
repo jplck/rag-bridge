@@ -1,8 +1,0 @@
-Welche baulichen und technischen Voraussetzungen muss ich für die Installation eines zeitlich befristeten Netzanschlusses schaffen?
-
-Die Kabelvorstreckung im Grundstück muss ausreichend freigelegt und ein Montagepunkt (Holzgestell) hergestellt werden.
-Der anzuschließende bauseitig zur Verfügung gestellte Baustromverteiler muss den gültigen technischen Anschlussbedingungen entsprechen.
-> Technische Anschlussbedingungen Niederspannung
-> Infoblatt zur Messeinrichtung zeitlich befristeter Netzanschlüsse
-Freileitungsabgriffstangen sind bei Bedarf bauseitig zu liefern.
-Ein Durchschleifkasten mit Zählerplatz ist bei Kabellänge > 30 m vom Bauherren vorzuhalten.

@@ -1,4 +1,0 @@
-Es sind alle Daten, die das Anschlussobjekt und das Bauvorhaben beschreiben, für die Beauftragung nötig. Dies sind zum Beispiel Angaben zum Anschlussnehmer, Rechnungsempfänger, Elektroinstallationsbetrieb und elektrische Anschlusswerte. Des Weiteren sind bei Baustellenverteilern ein Lageplan und Datenblätter der zustimmungspflichtigen Geräte hochzuladen.Wird der zeitlich befristete Anschluss durch einen Elektroinstallationsbetrieb in Betrieb gesetzt, welcher nicht bei der Netze BW GmbH eingetragen ist, ist die schriftliche Bestätigung über die regelkonforme Ausführung der elektrischen Anlagen auszufüllen, zu unterschreiben und ebenfalls hochzuladen:
-Haftungsausschluss Baustromanschluss
-(PDF)
-Bitte beachten Sie: Wir empfehlen den Antrag auf Baustrom von Ihrer Elektrofachkraft oder Ihrer Baufirma stellen zu lassen. Sie hat alle erforderlichen Unterlagen für die Anmeldung zur Hand. Dieser Schritt kann auch von Ihnen erledigt werden.
