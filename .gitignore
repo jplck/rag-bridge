@@ -1,14 +1,2 @@
 __blobstorage__/
 __azurite*
-
-# Python
-*.pyc
-__pycache__/
-.venv/
-*.egg-info/
-dist/
-build/
-
-# Azure Functions
-local.settings.json
-.vscode/

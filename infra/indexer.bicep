@@ -119,6 +119,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
           value: '[ADD URL HERE]'
         }
       ]
+      linuxFxVersion: 'Python|3.8'
       ftpsState: 'Disabled'
       minTlsVersion: '1.2'
     }
